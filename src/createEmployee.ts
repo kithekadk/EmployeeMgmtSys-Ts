@@ -191,32 +191,6 @@ class EmployeeActions{
         bankaccount_no.value = user.bankaccount_no
         role.value = user.role
 
-
-        // createEmployeeform.addEventListener('submit', (e) => {
-        //     e.preventDefault();
-
-        //     let employee = username.value.trim() != "" && email.value.trim() != "" && phone.value.trim() != "" && kra.value.trim() != "" && profile.value.trim() != "" && department.value.trim() != "" && salary.value.trim() != "" && employment_date.value.trim() != "" && bankaccount_no.value.trim() != "" && role.value.trim() != ""
-
-        //     if(employee){
-        //         let updatedEmployee={
-        //             id: user.id,
-        //             name: username.value.trim(),
-        //             email: email.value.trim(),
-        //             phone: phone.value.trim(),
-        //             kra: kra.value.trim(),
-        //             profile: profile.value.trim(),
-        //             department: department.value.trim(),
-        //             salary: salary.value.trim(),
-        //             employment_date: employment_date.value.trim(),
-        //             bankaccount_no: bankaccount_no.value.trim(),
-        //             role: role.value.trim()
-        //         }
-
-        //         Employees.splice(index, 1, updatedEmployee)
-        //     }
-        // })
-
-        // this.displayEmployees()
     }
 
 }
