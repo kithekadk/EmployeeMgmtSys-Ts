@@ -14,6 +14,9 @@ let role = document.querySelector('#role') as HTMLInputElement
 
 let profiles = document.querySelector('.profiles') as HTMLTableElement
 
+// currentEmployee index
+let currentIndex:number;
+
 
 toggleform.addEventListener("click", (()=>{
     if(createEmployeeform.style.display == 'none'){
@@ -49,7 +52,8 @@ createEmployeeform.addEventListener("submit", (e)=>{
     let employee = username.value.trim() != "" && email.value.trim() != "" && phone.value.trim() != "" && kra.value.trim() != "" && profile.value.trim() != "" && department.value.trim() != "" && salary.value.trim() != "" && employment_date.value.trim() != "" && bankaccount_no.value.trim() != "" && role.value.trim() != ""
 
     if(employee){
-        let newEmployee = {
+
+        let EmployeeDetails = {
             id: Employees.length + 1,
             name: username.value.trim(),
             email: email.value.trim(),
@@ -63,11 +67,30 @@ createEmployeeform.addEventListener("submit", (e)=>{
             role: role.value.trim()
         }
 
-        console.log(newEmployee);
+        if(currentIndex){
+            Employees.splice(currentIndex, 1, EmployeeDetails)
 
-        Employees.push(newEmployee)
+
+        }else{
+            Employees.push(EmployeeDetails)
+        }
 
         instance.displayEmployees()
+
+        username.value = ""
+        email.value = ''
+        phone.value = ""
+        kra.value = ''
+        profile.value = ''
+        department.value = ''
+        salary.value = ''
+        employment_date.value = ''
+        bankaccount_no.value = ''
+        role.value = ''
+
+        createEmployeeform.style.display = 'none'
+        toggleform.textContent = 'Add User'
+        toggleform.style.backgroundColor = '#0c63dd'
         
     }
 })
@@ -119,6 +142,13 @@ class EmployeeActions{
                 this.deleteEmployee(index)
             })
 
+            let updatebtn = document.createElement('button') as HTMLButtonElement
+            updatebtn.textContent = "Update"
+            updatebtn.style.backfaceVisibility = 'skyblue'
+            updatebtn.addEventListener('click', ()=>{
+                this.updateEmployee(index)
+            })
+
             profile.appendChild(numbering)
             profile.appendChild(profile_url)
             profile.appendChild(name)
@@ -128,6 +158,7 @@ class EmployeeActions{
             profile.appendChild(role)
             profile.appendChild(salary)
             profile.appendChild(deletebtn)
+            profile.appendChild(updatebtn)
 
             profiles.appendChild(profile)
 
@@ -138,6 +169,54 @@ class EmployeeActions{
         Employees.splice(index, 1)
 
         this.displayEmployees()
+    }
+
+    updateEmployee(index:number){
+        currentIndex = index
+
+        console.log(currentIndex);
+        
+        createEmployeeform.style.display = 'flex'
+
+        let user = Employees[index]
+
+        username.value = user.name
+        email.value = user.email
+        phone.value = user.phone
+        kra.value = user.kra
+        profile.value = user.profile
+        department.value = user.department
+        salary.value = user.salary
+        employment_date.value = user.employment_date
+        bankaccount_no.value = user.bankaccount_no
+        role.value = user.role
+
+
+        // createEmployeeform.addEventListener('submit', (e) => {
+        //     e.preventDefault();
+
+        //     let employee = username.value.trim() != "" && email.value.trim() != "" && phone.value.trim() != "" && kra.value.trim() != "" && profile.value.trim() != "" && department.value.trim() != "" && salary.value.trim() != "" && employment_date.value.trim() != "" && bankaccount_no.value.trim() != "" && role.value.trim() != ""
+
+        //     if(employee){
+        //         let updatedEmployee={
+        //             id: user.id,
+        //             name: username.value.trim(),
+        //             email: email.value.trim(),
+        //             phone: phone.value.trim(),
+        //             kra: kra.value.trim(),
+        //             profile: profile.value.trim(),
+        //             department: department.value.trim(),
+        //             salary: salary.value.trim(),
+        //             employment_date: employment_date.value.trim(),
+        //             bankaccount_no: bankaccount_no.value.trim(),
+        //             role: role.value.trim()
+        //         }
+
+        //         Employees.splice(index, 1, updatedEmployee)
+        //     }
+        // })
+
+        // this.displayEmployees()
     }
 
 }

@@ -28,7 +28,7 @@ nav{
     gap:10px;
     justify-content: center;
     padding: 20px 10px;
-    background-color: #80cdf1;
+    background-color: #6ea0e2;
     border-radius: 10px;
     min-width: 250px;
 }
@@ -84,6 +84,6 @@ table {
     padding: 8px;
   }
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+.profile>button{
+    padding: 10px;
+}
