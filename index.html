@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">EMS</div>
+        <button id="logoutbtn">Logout</button>
+    </nav>
+    <hr>
+
+    <div class="form-container">
+        <form class="createEmployeeform" style="display: none;">
+            <input type="text" placeholder="Input employee name" id="name">
+            <input type="text" placeholder="Input employee email" id="email">
+            <input type="text" placeholder="Input phone number" id="phone">
+            <input type="text" placeholder="Department" id="department">
+            <input type="number" placeholder="Salary" id="salary">
+            <input type="date" placeholder="Employment date" id="employment_date">
+            <input type="text" placeholder="KRA PIN" id="kra">
+            <input type="text" placeholder="Bank account number" id="bankaccount_no">
+            <input type="text" placeholder="Profile url" id="profile">
+            <select id="role">
+                <option value="">--Select Role--</option>
+                <option value="Admin">Admin</option>
+                <option value="Project Manager">Project Manager</option>
+                <option value="Software Engineer">Software Engineer</option>
+                <option value="QA/QE">QA/QE</option>
+            </select>
+            <input type="submit" value="Create Employee" id="createEmployeebtn">
+        </form>
+
+        <button id="toggleform">Add User</button>
+    </div>
+
+    <table class="profiles">
+        <tr class="tableheading">
+            <th>No.</th>
+            <th>Profile</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Department</th>
+            <th>Role</th>
+            <th>Salary</th>
+        </tr>
+
+
+    </table>
+
+
+    <script src="dist/createEmployee.js"></script>
+</body>
+</html>
